@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) {
         int opcao;
         do {
-            System.out.println("\n===== LANCHONETE =====");
+            System.out.println("\nBem vindo ao Duda Lanches:");
             System.out.println("1 - Cadastrar item no cardapio");
             System.out.println("2 - Listar cardapio");
             System.out.println("3 - Novo pedido");
@@ -60,7 +60,7 @@ public class Main {
             System.out.println("Cardapio vazio.");
             return;
         }
-        System.out.println("\n--- CARDAPIO ---");
+        System.out.println("\nCardápio");
         for (int i = 0; i < cardapio.size(); i++) {
             System.out.println((i + 1) + " - " + cardapio.get(i));
         }
