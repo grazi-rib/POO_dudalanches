@@ -42,59 +42,7 @@
 </table>
 
 <h2>Diagrama de classes UML</h2>
-<pre class="mermaid">
-classDiagram
-    class Produto {
-        <<abstract>>
-        -String nome
-        -double preco
-        +Produto(nome, preco)
-        +getNome() String
-        +setNome(nome) void
-        +getPreco() double
-        +setPreco(preco) void
-        +getTipo()* String
-        +toString() String
-    }
-    class Lanche {
-        +Lanche(nome, preco)
-        +getTipo() String
-    }
-    class Bebida {
-        +Bebida(nome, preco)
-        +getTipo() String
-    }
-    class Pedido {
-        -int id
-        -List~Produto~ itens
-        +Pedido(id)
-        +getId() int
-        +getItens() List~Produto~
-        +adicionarItem(produto) void
-        +calcularTotal() double
-        +toString() String
-    }
-    class GerenciadorArquivo {
-        -String ARQ_CARDAPIO
-        -String ARQ_PEDIDOS
-        +salvarCardapio(cardapio) void
-        +carregarCardapio() List~Produto~
-        +salvarPedidos(pedidos) void
-        +carregarPedidos() List~Pedido~
-        -criarProduto(tipo, nome, preco) Produto
-    }
-    class Main {
-        +main(args) void
-    }
-    Produto <|-- Lanche
-    Produto <|-- Bebida
-    Pedido "1" o-- "1..*" Produto : contém
-    GerenciadorArquivo ..> Produto : usa
-    GerenciadorArquivo ..> Pedido : usa
-    Main ..> GerenciadorArquivo : usa
-    Main ..> Pedido : cria
-    Main ..> Produto : cadastra
-</pre>
+<div style="overflow-x:auto;"><img src="diagrama.png" alt="Diagrama de classes UML do Sistema de Pedidos de Lanchonete" style="max-width:100%;height:auto;"></div>
 
 <h2>Conceitos de orientação a objetos aplicados</h2>
 <table>
@@ -105,10 +53,5 @@ classDiagram
   <tr><td>Polimorfismo</td><td>O método getTipo() é implementado de forma diferente em Lanche e Bebida; a lista de Produto guarda ambos.</td></tr>
   <tr><td>Composição/Agregação</td><td>Um Pedido possui uma lista de Produtos.</td></tr>
 </table>
-
-<script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs';
-  mermaid.initialize({ startOnLoad: true });
-</script>
 </body>
 </html>
